@@ -9,8 +9,7 @@ class PostTest < ActiveSupport::TestCase
   end
   
   test "content greater than 255 long should be invalid" do
-  	p = Post.create(:content => 'trivial', :title => "a" * 31)
-  	assert_match /Title is too long/, p.errors.full_messages.join
+  	p = Post.create!(:content => 'trivial', :title => "a" * 20)
   end
 
 end
